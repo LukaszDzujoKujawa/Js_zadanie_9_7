@@ -17,7 +17,6 @@ pickScissors.addEventListener('click', function() {playerPick('scissors'); });
 
 // gameState
 
-
 var gameState = 'notStarted', 
 
 	player = {
@@ -92,7 +91,6 @@ function getComputerPick() {
     return possiblePicks[Math.floor(Math.random()*3)];
 }
 
-
 // playerPick 
 
 var playerPickElem = document.getElementById('js-playerPick'),
@@ -132,7 +130,6 @@ function checkRoundWinner(playerPick, computerPick) {
 	        player.score++;
 	        setGamePoints();
 	    }
-	   
 	}
 
 //  setGamePoints
