@@ -3,7 +3,7 @@
 
 var newGameBtn = document.getElementById('js-newGameButton');
 
-newGameBtn.addEventListener('click', newGame); //po kliknięciu uruchamia się funkcja newGame
+newGameBtn.addEventListener('click', newGame);
 
 // gamerSelection
 
@@ -63,10 +63,8 @@ setGameElements();
 var playerPointsElem = document.getElementById('js-playerPoints'),
 playerNameElem = document.getElementById('js-playerName'),
 computerPointsElem = document.getElementById('js-computerPoints'),
-gameState;
 
 function newGame() {
-	//reset 
 	  player.score = 0;
 	  computer.score = 0;
 	  playerResultElem.innerHTML = "Player selection";
@@ -74,9 +72,8 @@ function newGame() {
       computerPickElem.innerHTML = "Computer Selection";
       computerResultElem.innerHTML = "Computer score";
       playerResultElem.innerHTML = "Player score";
-      
 	  player.name = prompt('Please enter your name', 'imię gracza');
-	  if (player.name!== '') {
+	  if (player.name!=== '') {
 		setGamePoints();
 	    gameState = 'started';
 	    setGameElements();
@@ -84,7 +81,7 @@ function newGame() {
 	  }
 	}
 
-//  getComputerPick - losuje wybór komputera
+//  getComputerPick 
 
 function getComputerPick() {
     var possiblePicks = ['rock', 'paper', 'scissors'];
@@ -101,7 +98,6 @@ computerResultElem = document.getElementById('js-computerResult');
 function playerPick(playerPick) {
 	console.log(playerPick);
     var computerPick = getComputerPick();
-
     playerPickElem.innerHTML = playerPick;
     computerPickElem.innerHTML = computerPick;
     checkRoundWinner(playerPick, computerPick);
@@ -111,16 +107,15 @@ function playerPick(playerPick) {
 // checkRoundWinner 
 
 function checkRoundWinner(playerPick, computerPick) {
-	  playerResultElem.innerHTML = computerResultElem.innerHTML = '';
+	 playerResultElem.innerHTML = computerResultElem.innerHTML = '';
+	 var winnerIs = 'player';
 
-	  var winnerIs = 'player';
-
-	    if (playerPick == computerPick) {
-	        winnerIs = 'noone'; // remis
+	    if (playerPick === computerPick) {
+	        winnerIs = 'noone'; // tie
 	    } else if (
-	        (computerPick == 'rock' &&  playerPick == 'scissors') ||
-	        (computerPick == 'scissors' &&  playerPick == 'paper') ||
-	        (computerPick == 'paper' &&  playerPick == 'rock')) {
+	        (computerPick === 'rock' &&  playerPick == 'scissors') ||
+	        (computerPick === 'scissors' &&  playerPick == 'paper') ||
+	        (computerPick === 'paper' &&  playerPick == 'rock')) {
 
 	    	 computerResultElem.innerHTML = "Win!";
 	         computer.score++;
@@ -142,17 +137,16 @@ function setGamePoints() {
 //  setGameEnd 
 
 function setGameEnd() {
-	
 	var winningScore = 10;
 	var winner;
-	if (player.score == winningScore){
+	if (player.score === winningScore){
 		gameState = 'ended';
 		console.log(gameState);
 		winner = player.name;
 		winnerInfo.innerHTML = "The Winner is: " + winner;
 		setGameElements();
 		//reset();
-	} else if(computer.score == winningScore) {
+	} else if(computer.score === winningScore) {
 		gameState = 'ended';
 		winner = 'computer';
 		console.log(gameState);
