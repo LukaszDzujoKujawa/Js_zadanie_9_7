@@ -68,8 +68,8 @@ function newGame() {
       computerResultElem.innerHTML = "Computer score";
       playerResultElem.innerHTML = "Player score";
       
-	  player.name = prompt('Please enter your name', 'imię gracza');
-	  if (player.name!= '') {
+	  player.name  = prompt('Please enter your name', 'imię gracza');
+	  if (player.name != '') {
 		setGamePoints();
 	    gameState = 'started';
 	    setGameElements();
@@ -106,12 +106,12 @@ function checkRoundWinner(playerPick, computerPick) {
 
 	  var winnerIs = 'player';
 
-	    if (playerPick == computerPick) {
+	    if (playerPick === computerPick) {
 	        winnerIs = 'noone'; // remis
 	    } else if (
-	        (computerPick == 'rock' &&  playerPick == 'scissors') ||
-	        (computerPick == 'scissors' &&  playerPick == 'paper') ||
-	        (computerPick == 'paper' &&  playerPick == 'rock')) {
+	        (computerPick === 'rock' &&  playerPick === 'scissors') ||
+	        (computerPick === 'scissors' &&  playerPick === 'paper') ||
+	        (computerPick === 'paper' &&  playerPick === 'rock')) {
 
 	    	 computerResultElem.innerHTML = "Win!";
 	         computer.score++;
@@ -136,14 +136,14 @@ function setGameEnd() {
 	
 	var winningScore = 10;
 	var winner;
-	if (player.score == winningScore){
+	if (player.score === winningScore){
 		gameState = 'ended';
 		console.log(gameState);
 		winner = player.name;
 		winnerInfo.innerHTML = "The Winner is: " + winner;
 		setGameElements();
 		//reset();
-	} else if(computer.score == winningScore) {
+	} else if(computer.score === winningScore) {
 		gameState = 'ended';
 		winner = 'computer';
 		console.log(gameState);
